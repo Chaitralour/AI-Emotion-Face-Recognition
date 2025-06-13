@@ -1,0 +1,64 @@
+---
+export interface Props {
+  type?: 'info' | 'warning' | 'success' | 'error';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const typeClasses = {
+  info: 'info-box--info',
+  warning: 'info-box--warning',
+  success: 'info-box--success',
+  error: 'info-box--error'
+};
+---
+
+<div class={`info-box ${typeClasses[type]}`}>
+  {title && <div class="info-box__title">{title}</div>}
+  <div class="info-box__content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .info-box {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid;
+  }
+
+  .info-box__title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-box__content {
+    line-height: 1.6;
+  }
+
+  .info-box--info {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    color: #1e40af;
+  }
+
+  .info-box--warning {
+    background-color: #fffbeb;
+    border-color: #f59e0b;
+    color: #92400e;
+  }
+
+  .info-box--success {
+    background-color: #f0fdf4;
+    border-color: #10b981;
+    color: #065f46;
+  }
+
+  .info-box--error {
+    background-color: #fef2f2;
+    border-color: #ef4444;
+    color: #991b1b;
+  }
+</style>

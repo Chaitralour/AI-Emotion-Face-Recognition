@@ -1,0 +1,909 @@
+---
+import DocumentationLayout from '../layouts/DocumentationLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import InfoBox from '../components/InfoBox.astro';
+---
+
+<DocumentationLayout 
+  title="Hardware Setup" 
+  description="Complete hardware specifications, assembly guide, and configuration for the Face & Emotion Recognition System"
+>
+  <section class="hardware-requirements">
+    <h2>Hardware Requirements</h2>
+    
+    <div class="requirements-grid">
+      <div class="requirement-card essential">
+        <h3>🔧 Essential Components</h3>
+        <div class="component-list">
+          <div class="component">
+            <h4>Raspberry Pi 4B (4GB RAM)</h4>
+            <p>Primary processing unit</p>
+            <span class="price">~$75</span>
+          </div>
+          <div class="component">
+            <h4>USB 3.0 Camera (1080p)</h4>
+            <p>Video input device with good low-light performance</p>
+            <span class="price">~$25</span>
+          </div>
+          <div class="component">
+            <h4>MicroSD Card (32GB Class 10)</h4>
+            <p>System storage with fast read/write speeds</p>
+            <span class="price">~$15</span>
+          </div>
+          <div class="component">
+            <h4>Power Supply (5V 3A USB-C)</h4>
+            <p>Official Raspberry Pi power adapter recommended</p>
+            <span class="price">~$10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="requirement-card recommended">
+        <h3>⚡ Performance Components</h3>
+        <div class="component-list">
+          <div class="component">
+            <h4>Active Cooling System</h4>
+            <p>Heat sink + 30mm fan for sustained performance</p>
+            <span class="price">~$15</span>
+          </div>
+          <div class="component">
+            <h4>Micro HDMI Cable</h4>
+            <p>For display output and debugging</p>
+            <span class="price">~$8</span>
+          </div>
+          <div class="component">
+            <h4>USB 3.0 Hub</h4>
+            <p>Additional ports for peripherals</p>
+            <span class="price">~$12</span>
+          </div>
+          <div class="component">
+            <h4>Ethernet Cable</h4>
+            <p>Stable network connection for development</p>
+            <span class="price">~$5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="requirement-card optional">
+        <h3>🏠 Enclosure & Mounting</h3>
+        <div class="component-list">
+          <div class="component">
+            <h4>Official Pi 4 Case</h4>
+            <p>Protection with integrated cooling</p>
+            <span class="price">~$20</span>
+          </div>
+          <div class="component">
+            <h4>Camera Mount/Tripod</h4>
+            <p>Flexible positioning for optimal angles</p>
+            <span class="price">~$15</span>
+          </div>
+          <div class="component">
+            <h4>GPIO Extension Board</h4>
+            <p>For additional sensors and peripherals</p>
+            <span class="price">~$10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="total-cost">
+      <h3>Total Cost Estimate</h3>
+      <div class="cost-breakdown">
+        <div class="cost-item">
+          <span>Essential Components:</span>
+          <span>$125</span>
+        </div>
+        <div class="cost-item">
+          <span>Performance Components:</span>
+          <span>$40</span>
+        </div>
+        <div class="cost-item">
+          <span>Optional Components:</span>
+          <span>$45</span>
+        </div>
+        <div class="cost-total">
+          <span>Total Project Cost:</span>
+          <span>$210</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detailed-specs">
+    <h2>Detailed Hardware Specifications</h2>
+
+    <div class="spec-sections">
+      <div class="spec-section">
+        <h3>Raspberry Pi 4B Specifications</h3>
+        <table class="spec-table">
+          <tr>
+            <td><strong>CPU</strong></td>
+            <td>Broadcom BCM2711, Quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz</td>
+          </tr>
+          <tr>
+            <td><strong>RAM</strong></td>
+            <td>4GB LPDDR4-3200 SDRAM (8GB model also compatible)</td>
+          </tr>
+          <tr>
+            <td><strong>GPU</strong></td>
+            <td>VideoCore VI @ 500MHz (supports OpenGL ES 3.1, Vulkan 1.0)</td>
+          </tr>
+          <tr>
+            <td><strong>Storage</strong></td>
+            <td>MicroSD card slot for OS and data storage</td>
+          </tr>
+          <tr>
+            <td><strong>USB Ports</strong></td>
+            <td>2x USB 3.0, 2x USB 2.0</td>
+          </tr>
+          <tr>
+            <td><strong>Network</strong></td>
+            <td>Gigabit Ethernet, 2.4/5.0 GHz 802.11ac WiFi, Bluetooth 5.0</td>
+          </tr>
+          <tr>
+            <td><strong>Video Output</strong></td>
+            <td>2x micro-HDMI ports (up to 4Kp60 supported)</td>
+          </tr>
+          <tr>
+            <td><strong>Power</strong></td>
+            <td>5V DC via USB-C connector (minimum 3A supply recommended)</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="spec-section">
+        <h3>Camera Requirements</h3>
+        <table class="spec-table">
+          <tr>
+            <td><strong>Resolution</strong></td>
+            <td>Minimum 720p, recommended 1080p for optimal face detection</td>
+          </tr>
+          <tr>
+            <td><strong>Frame Rate</strong></td>
+            <td>30 FPS at 1080p, 60 FPS at 720p</td>
+          </tr>
+          <tr>
+            <td><strong>Interface</strong></td>
+            <td>USB 3.0 preferred for bandwidth, USB 2.0 compatible</td>
+          </tr>
+          <tr>
+            <td><strong>Field of View</strong></td>
+            <td>70-90 degrees horizontal for room coverage</td>
+          </tr>
+          <tr>
+            <td><strong>Low Light Performance</strong></td>
+            <td>Minimum 0.1 lux sensitivity recommended</td>
+          </tr>
+          <tr>
+            <td><strong>Auto Focus</strong></td>
+            <td>Preferred for varying distances, manual focus acceptable</td>
+          </tr>
+          <tr>
+            <td><strong>Compatibility</strong></td>
+            <td>UVC (USB Video Class) driver support required</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <InfoBox type="info" title="Performance Considerations">
+      The Raspberry Pi 4B with 4GB RAM provides optimal performance for real-time emotion recognition. 
+      The 8GB model offers better performance for multiple camera streams or additional processing tasks.
+    </InfoBox>
+  </section>
+
+  <section class="assembly-guide">
+    <h2>Assembly Guide</h2>
+
+    <div class="assembly-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Prepare the Raspberry Pi</h3>
+          <ul>
+            <li>Unpack the Raspberry Pi 4B from anti-static packaging</li>
+            <li>Inspect for any physical damage</li>
+            <li>Locate GPIO pins, USB ports, and camera connector</li>
+          </ul>
+          <InfoBox type="warning" title="ESD Protection">
+            Handle the Raspberry Pi with anti-static precautions. Touch a grounded metal object before handling the board.
+          </InfoBox>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Install Cooling System</h3>
+          <ul>
+            <li>Clean the CPU with isopropyl alcohol</li>
+            <li>Apply thermal paste if using aftermarket cooling</li>
+            <li>Install heat sink with firm, even pressure</li>
+            <li>Connect 5V fan to GPIO pins 4 (+5V) and 6 (GND)</li>
+          </ul>
+          
+          <CodeBlock language="bash" title="Fan Control Script">
+#!/bin/bash
+# Create fan control service
+sudo tee /etc/systemd/system/rpi-fan.service > /dev/null <<EOF
+[Unit]
+Description=RPi Fan Control
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/fan_control.py
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable service
+sudo systemctl enable rpi-fan.service
+sudo systemctl start rpi-fan.service
+          </CodeBlock>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Install in Case</h3>
+          <ul>
+            <li>Place Raspberry Pi in the bottom half of case</li>
+            <li>Ensure all ports align with case openings</li>
+            <li>Route camera cable through designated slot</li>
+            <li>Secure with provided screws (if applicable)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Connect Peripherals</h3>
+          <ul>
+            <li>Insert microSD card with Raspberry Pi OS</li>
+            <li>Connect USB camera to USB 3.0 port (blue connector)</li>
+            <li>Connect HDMI cable for display output</li>
+            <li>Connect Ethernet cable for stable network</li>
+            <li>Connect power supply last</li>
+          </ul>
+
+          <InfoBox type="success" title="Connection Order">
+            Always connect the power supply last to prevent potential damage from power surges during connection.
+          </InfoBox>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="os-installation">
+    <h2>Operating System Installation</h2>
+
+    <h3>Raspberry Pi OS Setup</h3>
+    <p>
+      We recommend using Raspberry Pi OS (64-bit) for optimal performance with our emotion recognition system.
+    </p>
+
+    <div class="os-steps">
+      <div class="os-step">
+        <h4>1. Download Raspberry Pi Imager</h4>
+        <p>Download from <a href="https://www.raspberrypi.com/software/" target="_blank">official website</a></p>
+      </div>
+
+      <div class="os-step">
+        <h4>2. Flash Raspberry Pi OS</h4>
+        <ul>
+          <li>Select "Raspberry Pi OS (64-bit)" from the list</li>
+          <li>Choose your microSD card</li>
+          <li>Configure WiFi and SSH in advanced options</li>
+          <li>Flash the image</li>
+        </ul>
+      </div>
+
+      <div class="os-step">
+        <h4>3. Initial Boot Configuration</h4>
+        <CodeBlock language="bash" title="First Boot Commands">
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install essential packages
+sudo apt install -y python3-pip python3-venv git cmake
+
+# Enable camera interface
+sudo raspi-config nonint do_camera 0
+
+# Increase GPU memory split for better performance
+echo "gpu_mem=128" | sudo tee -a /boot/config.txt
+
+# Set CPU governor to performance mode
+echo "scaling_governor=performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
+# Reboot to apply changes
+sudo reboot
+        </CodeBlock>
+      </div>
+    </div>
+  </section>
+
+  <section class="performance-optimization">
+    <h2>Hardware Performance Optimization</h2>
+
+    <h3>CPU Configuration</h3>
+    <CodeBlock language="bash" title="CPU Optimization Settings">
+# Add to /boot/config.txt for maximum performance
+sudo tee -a /boot/config.txt > /dev/null <<EOF
+
+# CPU Performance Settings
+arm_freq=2000                # Overclock to 2.0GHz (stable on most Pi 4B)
+over_voltage=6               # Increase voltage for stability
+gpu_freq=750                 # Overclock GPU
+core_freq=500               # Core frequency
+h264_freq=500               # H.264 decoder frequency
+isp_freq=500                # Image sensor pipeline frequency
+
+# Memory Settings
+gpu_mem=256                 # Allocate 256MB to GPU for video processing
+disable_splash=1            # Faster boot
+
+# USB Performance
+dwc_otg.speed=1             # Force USB 2.0 for better compatibility
+dwc_otg.lpm_enable=0        # Disable USB power management
+EOF
+    </CodeBlock>
+
+    <h3>Thermal Management</h3>
+    <p>
+      Proper thermal management is crucial for sustained performance during continuous emotion recognition processing.
+    </p>
+
+    <CodeBlock language="python" title="Temperature Monitoring Script">
+#!/usr/bin/env python3
+import time
+import subprocess
+import RPi.GPIO as GPIO
+
+class ThermalManager:
+    def __init__(self, fan_pin=18, temp_threshold=65):
+        self.fan_pin = fan_pin
+        self.temp_threshold = temp_threshold
+        
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(fan_pin, GPIO.OUT)
+        self.pwm = GPIO.PWM(fan_pin, 1000)  # 1kHz PWM
+        self.pwm.start(0)
+    
+    def get_cpu_temp(self):
+        """Get CPU temperature in Celsius"""
+        result = subprocess.run(
+            ['vcgencmd', 'measure_temp'], 
+            capture_output=True, 
+            text=True
+        )
+        temp_str = result.stdout.strip()
+        temp = float(temp_str.split('=')[1].split("'")[0])
+        return temp
+    
+    def control_fan(self):
+        """Control fan speed based on temperature"""
+        temp = self.get_cpu_temp()
+        
+        if temp < self.temp_threshold:
+            fan_speed = 0
+        elif temp < self.temp_threshold + 10:
+            fan_speed = 50
+        else:
+            fan_speed = 100
+        
+        self.pwm.ChangeDutyCycle(fan_speed)
+        return temp, fan_speed
+    
+    def monitor_loop(self):
+        """Continuous monitoring loop"""
+        try:
+            while True:
+                temp, fan_speed = self.control_fan()
+                print(f"CPU Temp: {temp:.1f}°C, Fan Speed: {fan_speed}%")
+                time.sleep(5)
+        except KeyboardInterrupt:
+            self.cleanup()
+    
+    def cleanup(self):
+        """Clean up GPIO resources"""
+        self.pwm.stop()
+        GPIO.cleanup()
+
+if __name__ == "__main__":
+    thermal_manager = ThermalManager()
+    thermal_manager.monitor_loop()
+    </CodeBlock>
+
+    <InfoBox type="warning" title="Overclocking Warning">
+      Overclocking increases performance but also heat generation and power consumption. 
+      Ensure adequate cooling and a quality power supply when overclocking.
+    </InfoBox>
+  </section>
+
+  <section class="troubleshooting-hardware">
+    <h2>Hardware Troubleshooting</h2>
+
+    <div class="troubleshooting-grid">
+      <div class="trouble-item">
+        <h4>⚠️ Camera Not Detected</h4>
+        <ul>
+          <li>Check USB connection and try different port</li>
+          <li>Verify camera works on another device</li>
+          <li>Run <code>lsusb</code> to list USB devices</li>
+          <li>Check <code>dmesg</code> for connection errors</li>
+        </ul>
+      </div>
+
+      <div class="trouble-item">
+        <h4>🔥 Overheating Issues</h4>
+        <ul>
+          <li>Verify fan is running and properly connected</li>
+          <li>Check thermal paste application</li>
+          <li>Reduce overclock settings</li>
+          <li>Improve case ventilation</li>
+        </ul>
+      </div>
+
+      <div class="trouble-item">
+        <h4>⚡ Power Supply Problems</h4>
+        <ul>
+          <li>Use official 5V 3A USB-C power adapter</li>
+          <li>Check for voltage drops under load</li>
+          <li>Ensure high-quality USB-C cable</li>
+          <li>Monitor for low voltage warnings</li>
+        </ul>
+      </div>
+
+      <div class="trouble-item">
+        <h4>💾 SD Card Issues</h4>
+        <ul>
+          <li>Use Class 10 or better microSD card</li>
+          <li>Check for corruption with <code>fsck</code></li>
+          <li>Enable read-only mode for production</li>
+          <li>Regular backup of system image</li>
+        </ul>
+      </div>
+    </div>
+
+    <CodeBlock language="bash" title="Hardware Diagnostic Script">
+#!/bin/bash
+echo "=== Raspberry Pi Hardware Diagnostics ==="
+
+# System Information
+echo "System Info:"
+cat /proc/cpuinfo | grep "Model"
+cat /proc/meminfo | grep "MemTotal"
+
+# Temperature Check
+echo -e "\nTemperature:"
+vcgencmd measure_temp
+
+# Voltage Check
+echo -e "\nVoltages:"
+for id in core sdram_c sdram_i sdram_p ; do
+    echo "$id: $(vcgencmd measure_volts $id)"
+done
+
+# USB Devices
+echo -e "\nUSB Devices:"
+lsusb
+
+# Camera Detection
+echo -e "\nCamera Detection:"
+if [ -e /dev/video0 ]; then
+    echo "Camera detected at /dev/video0"
+    v4l2-ctl --list-devices
+else
+    echo "No camera detected"
+fi
+
+# Storage Information
+echo -e "\nStorage:"
+df -h / | tail -1
+
+# Network Status
+echo -e "\nNetwork:"
+ip addr show | grep "inet " | grep -v "127.0.0.1"
+    </CodeBlock>
+  </section>
+</DocumentationLayout>
+
+<style>
+  .hardware-requirements {
+    margin-bottom: 3rem;
+  }
+
+  .hardware-requirements h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .requirement-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 2px solid;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .requirement-card.essential {
+    border-color: #ef4444;
+  }
+
+  .requirement-card.recommended {
+    border-color: #3b82f6;
+  }
+
+  .requirement-card.optional {
+    border-color: #10b981;
+  }
+
+  .requirement-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .requirement-card.essential h3 {
+    color: #ef4444;
+  }
+
+  .requirement-card.recommended h3 {
+    color: #3b82f6;
+  }
+
+  .requirement-card.optional h3 {
+    color: #10b981;
+  }
+
+  .component-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .component {
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    position: relative;
+  }
+
+  .component h4 {
+    color: #111827;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .component p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .price {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: #111827;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .total-cost {
+    margin: 2rem 0;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .total-cost h3 {
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .cost-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    color: #4b5563;
+  }
+
+  .cost-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 2px solid #e5e7eb;
+    font-weight: 600;
+    color: #111827;
+    font-size: 1.125rem;
+  }
+
+  .detailed-specs {
+    margin: 3rem 0;
+  }
+
+  .detailed-specs h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .spec-sections {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .spec-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .spec-section h3 {
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .spec-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
+
+  .spec-table td:first-child {
+    width: 25%;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .spec-table td:last-child {
+    color: #6b7280;
+  }
+
+  .assembly-guide {
+    margin: 3rem 0;
+  }
+
+  .assembly-guide h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .assembly-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    background: #3b82f6;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .step-content h3 {
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .step-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .step-content li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+  }
+
+  .os-installation {
+    margin: 3rem 0;
+  }
+
+  .os-installation h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .os-installation h3 {
+    color: #374151;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .os-steps {
+    display: grid;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .os-step {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .os-step h4 {
+    color: #111827;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .os-step p {
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+  }
+
+  .os-step a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  .os-step a:hover {
+    text-decoration: underline;
+  }
+
+  .os-step ul {
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .os-step li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+  }
+
+  .performance-optimization {
+    margin: 3rem 0;
+  }
+
+  .performance-optimization h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .performance-optimization h3 {
+    color: #374151;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .troubleshooting-hardware {
+    margin: 3rem 0;
+  }
+
+  .troubleshooting-hardware h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .troubleshooting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .trouble-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .trouble-item h4 {
+    color: #111827;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .trouble-item ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .trouble-item li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+  }
+
+  .trouble-item code {
+    background: #f3f4f6;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .requirements-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .step {
+      flex-direction: column;
+    }
+
+    .troubleshooting-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .spec-table td:first-child {
+      width: 35%;
+    }
+  }
+</style>

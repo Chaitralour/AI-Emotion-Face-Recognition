@@ -1,0 +1,171 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description || "AI-based Face & Emotion Recognition System Documentation"} />
+    <title>{title} | Face & Emotion Recognition System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="layout">
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Face & Emotion Recognition</h2>
+          <p>AI System Documentation</p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/" class="nav-link">Overview</a></li>
+          <li><a href="/architecture" class="nav-link">System Architecture</a></li>
+          <li><a href="/hardware" class="nav-link">Hardware Setup</a></li>
+          <li><a href="/implementation" class="nav-link">Implementation</a></li>
+          <li><a href="/performance" class="nav-link">Performance & Testing</a></li>
+          <li><a href="/integration" class="nav-link">API & Integration</a></li>
+          <li><a href="/troubleshooting" class="nav-link">Troubleshooting</a></li>
+        </ul>
+      </nav>
+      
+      <main class="content">
+        <header class="page-header">
+          <h1>{title}</h1>
+          {description && <p class="page-description">{description}</p>}
+        </header>
+        <div class="page-content">
+          <slot />
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #f9fafb;
+  }
+
+  .layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 280px;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 2rem 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .sidebar-header {
+    padding: 0 2rem 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+  }
+
+  .sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-header p {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0 1rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #4b5563;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+
+  .nav-link.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  .content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem 3rem;
+    max-width: 1200px;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .page-description {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 600px;
+  }
+
+  .page-content {
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .content {
+      margin-left: 0;
+      padding: 1.5rem;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
